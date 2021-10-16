@@ -72,14 +72,14 @@ function showDivs(n) {
                         <!--Load san pham tu DB -->
                            <?php
 						  // 	include_once("database.php");
-		  				   	$result = mysqli_query($conn, "SELECT * FROM product WHERE Cat_ID='P01'" );
+		  				   	$result = pg_query($conn, "SELECT * FROM public.product WHERE Cat_ID='P01'" );
 			
 			                if (!$result) { //add this check.
-                                die('Invalid query: ' . mysqli_error($conn));
+                                die('Invalid query: ' . pg_error($conn));
                             }
 		
 			            
-			                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			                while($row = pg_fetch_array($result, MYSQLI_ASSOC)){
 				            ?>
 				            <!--Một sản phẩm -->
                             <div class="single-product">
@@ -112,14 +112,14 @@ function showDivs(n) {
                         <!--Load san pham tu DB -->
                            <?php
 						  // 	include_once("database.php");
-		  				   	$result = mysqli_query($conn, "SELECT * FROM product WHERE Cat_ID='C01'" );
+		  				   	$result = pg_query($conn, "SELECT * FROM public.product WHERE Cat_ID='C01'" );
 			
 			                if (!$result) { //add this check.
-                                die('Invalid query: ' . mysqli_error($conn));
+                                die('Invalid query: ' . pg_error($conn));
                             }
 		
 			            
-			                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			                while($row = pg_fetch_array($result, MYSQLI_ASSOC)){
 				            ?>
 				            <!--Một sản phẩm -->
                             <div class="single-product">
@@ -152,14 +152,14 @@ function showDivs(n) {
                         <!--Load san pham tu DB -->
                            <?php
 						  // 	include_once("database.php");
-		  				   	$result = mysqli_query($conn, "SELECT * FROM product WHERE Cat_ID='S01'" );
+		  				   	$result = pg_query($conn, "SELECT * FROM public.product WHERE Cat_ID='S01'" );
 			
 			                if (!$result) { //add this check.
-                                die('Invalid query: ' . mysqli_error($conn));
+                                die('Invalid query: ' . pg_error($conn));
                             }
 		
 			            
-			                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			                while($row = pg_fetch_array($result, MYSQLI_ASSOC)){
 				            ?>
 				            <!--Một sản phẩm -->
                             <div class="single-product">

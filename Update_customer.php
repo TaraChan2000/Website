@@ -4,8 +4,8 @@
 $query = "SELECT CustName, Address, email, telephone
 			FROM customer
 			WHERE Username = '" . $_SESSION["us"] . "'";
-	$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
-	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	$result = pg_query($conn, $query) or die(pg_error($conn));
+	$row = pg_fetch_array($result, MYSQLI_ASSOC);
 
 	$us = $_SESSION["us"];
 	$email = $row["email"];
@@ -28,13 +28,13 @@ if(isset($_POST['btnUpdate'])){
 			telephone='$telephone', Password='$pass'
 			WHERE Username = '". $_SESSION['us'] . "'";
 
-			mysqli_query($conn,$sq) or die(mysqli_error($conn));
+			pg_query($conn,$sq) or die(pg_error($conn));
 		}
 		else {
 				$sq = "UPDATE customer
 				SET CustName='$fullname', Address='$address',
 				telephone='$telephone' WHERE Username = '". $_SESSION['us']. "'";
-				mysqli_query($conn, $sq) or die(mysqli_error($conn));
+				pg_query($conn, $sq) or die(pg_error($conn));
 			}
 			echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
 		}else{
