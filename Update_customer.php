@@ -1,16 +1,16 @@
 
 <?php
 //Get custmer information
-$query = "SELECT CustName, Address, email, telephone
+$query = "SELECT custname, address, email, telephone
 			FROM customer
-			WHERE Username = '" . $_SESSION["us"] . "'";
+			WHERE username = '" . $_SESSION["us"] . "'";
 	$result = pg_query($conn, $query) or die(pg_error($conn));
-	$row = pg_fetch_array($result, MYSQLI_ASSOC);
+	$row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
 
 	$us = $_SESSION["us"];
 	$email = $row["email"];
-	$fullname = $row["CustName"];
-	$address = $row["Address"];
+	$fullname = $row["custname"];
+	$address = $row["address"];
 	$telephone = $row["telephone"];
 
 //Update information when the user presses the "Update" button
@@ -24,16 +24,16 @@ if(isset($_POST['btnUpdate'])){
 			$pass = md5($_POST['txtPass1']);
 
 			$sq = "UPDATE customer
-			SET CustName='$fullname', Address='$address',
-			telephone='$telephone', Password='$pass'
-			WHERE Username = '". $_SESSION['us'] . "'";
+			SET custname='$fullname', address='$address',
+			telephone='$telephone', password='$pass'
+			WHERE username = '". $_SESSION['us'] . "'";
 
 			pg_query($conn,$sq) or die(pg_error($conn));
 		}
 		else {
 				$sq = "UPDATE customer
-				SET CustName='$fullname', Address='$address',
-				telephone='$telephone' WHERE Username = '". $_SESSION['us']. "'";
+				SET custname='$fullname', address='$address',
+				telephone='$telephone' WHERE username = '". $_SESSION['us']. "'";
 				pg_query($conn, $sq) or die(pg_error($conn));
 			}
 			echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';

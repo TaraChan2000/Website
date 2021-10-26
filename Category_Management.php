@@ -28,7 +28,7 @@
         if(isset($_GET["function"])=='del'){
             if(isset($_GET["id"])){
                 $id=$_GET["id"];
-                pg_query($conn,"delete from public.category where Cat_ID='$id'");
+                pg_query($conn,"delete from public.category where cat_id='$id'");
             }
         }
         ?>
@@ -53,13 +53,13 @@
             <?php
             $No=1;
             $result=pg_query($conn,"Select * from public.category");
-            while($row=pg_fetch_array($result,MYSQLI_ASSOC))
+            while($row=pg_fetch_array($result,NULL, PGSQL_ASSOC))
             {
             ?>
 			<tr>
               <td class="cotCheckBox"><?php echo $No;?></td>
-              <td><?php echo $row["Cat_Name"];?></td>
-              <td><?php echo $row["Cat_Des"];?></td>
+              <td><?php echo $row["cat_name"];?></td>
+              <td><?php echo $row["cat_des"];?></td>
               <td style='text-align:center'><a href="?page=update_category&&function=del&&id=<?php echo $row["Cat_ID"];?>"><img src='images1/edit.png' border='0'></a></td>
               <td style='text-align:center'><a href="?page=category_management&&function=del&&id=<?php echo $row["Cat_ID"];?>" onclick="deleteConfirm()"><img src='images1/delete.png' border='0'></a></td>
             </tr>
